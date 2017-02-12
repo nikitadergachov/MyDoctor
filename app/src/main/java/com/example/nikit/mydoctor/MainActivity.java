@@ -3,6 +3,7 @@ package com.example.nikit.mydoctor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity
     private FloatingActionButton fab,fab1,fab2,fab3;
     private Animation fab_open,fab_close,rotate_forward,rotate_backward;
 
+    private ViewPager mViewPager;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,9 @@ public class MainActivity extends AppCompatActivity
         fab1 = (FloatingActionButton)findViewById(R.id.fab1);
         fab2 = (FloatingActionButton)findViewById(R.id.fab2);
         fab3 = (FloatingActionButton)findViewById(R.id.fab3);
+        fab1.setVisibility(View.INVISIBLE);
+        fab2.setVisibility(View.INVISIBLE);
+        fab3.setVisibility(View.INVISIBLE);
         fab_open = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fab_open);
         fab_close = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
         rotate_forward = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_forward);
@@ -44,6 +51,11 @@ public class MainActivity extends AppCompatActivity
         fab2.setOnClickListener(this);
         fab3.setOnClickListener(this);
 
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
+
+        // Set up the ViewPager with the sections adapter.
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
