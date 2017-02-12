@@ -23,15 +23,60 @@
 
     <include layout="@layout/content_main" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_add_white"
-        app:elevation="0dp"
-        app:backgroundTint="@color/colorAccent"
-        android:baselineAlignBottom="false"
-        android:layout_width="60dp"
-        android:layout_height="60dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="272dp"
+        android:layout_gravity="bottom|end">
+
+
+        <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab3"
+                android:layout_gravity="bottom|end"
+                app:srcCompat="@drawable/calendar_clock"
+                app:elevation="0dp"
+                app:backgroundTint="@android:color/holo_purple"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="22dp"
+                android:layout_height="50dp"
+                android:layout_width="50dp" />
+
+
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@drawable/note_multiple"
+            app:elevation="0dp"
+            app:backgroundTint="@android:color/holo_green_light"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="22dp"
+            android:layout_height="50dp"
+            android:layout_width="50dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@drawable/pill"
+            app:elevation="0dp"
+            app:backgroundTint="@android:color/holo_orange_light"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="22dp"
+            android:layout_height="50dp"
+            android:layout_width="50dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@drawable/ic_add_white"
+            app:elevation="0dp"
+            app:backgroundTint="@color/colorAccent"
+            android:baselineAlignBottom="false"
+            android:layout_width="60dp"
+            android:layout_height="60dp" />
+    </LinearLayout>
+
 
 </android.support.design.widget.CoordinatorLayout>
