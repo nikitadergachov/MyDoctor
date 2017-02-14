@@ -26,7 +26,6 @@ public  class PlaceholderFragment extends Fragment {
      * number.
      */
     public static PlaceholderFragment newInstance(int sectionNumber) {
-        Log.d("Raj","хуй");
 
         PlaceholderFragment fragment = new PlaceholderFragment();
         Bundle args = new Bundle();
@@ -38,7 +37,6 @@ public  class PlaceholderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        Log.d("Raj","хуй2");
 
         View rootView = inflater.inflate(R.layout.content_main, container, false);
         TextView textView = (TextView) rootView.findViewById(R.id.section_label);
