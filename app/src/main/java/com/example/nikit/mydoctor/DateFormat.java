@@ -3,9 +3,7 @@ package com.example.nikit.mydoctor;
 import java.sql.Date;
 import java.util.Calendar;
 
-/**
- * Created by nikit on 14.02.2017.
- */
+
 public class DateFormat {
     private static DateFormat ourInstance = new DateFormat();
 
@@ -70,6 +68,12 @@ public class DateFormat {
     public static void getPreviousDay(){
         calendar.add(Calendar.DATE, -1);
         DateRus();
+    }
+
+    public static String getPositionDay(int position){
+        calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, position);
+        return DateRus();
     }
 
     public static int getDate(){

@@ -5,12 +5,15 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
+import android.view.ViewGroup;
 
-/**
- * Created by nikit on 12.02.2017.
- */
+import java.util.Dictionary;
+
 
 public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+    private int mActualTitleListSize;
+    private Dictionary mTitleList;
 
     public SectionsPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -25,20 +28,27 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        // Show 3 total pages.
-        return 3;
+        return Integer.MAX_VALUE;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        switch (position) {
-            case 0:
-                return "SECTION 1";
-            case 1:
-                return "SECTION 2";
-            case 2:
-                return "SECTION 3";
-        }
-        return null;
+        String title = (String) mTitleList.get(position % mActualTitleListSize);
+        return title;
     }
+
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        int virtualPosition = position % mActualTitleListSize;
+        return super.instantiateItem(container, virtualPosition);
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        int virtualPosition = position % mActualTitleListSize;
+        super.destroyItem(container, virtualPosition, object);
+    }
+
+
+
 }

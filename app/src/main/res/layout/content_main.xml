@@ -13,20 +13,58 @@
     tools:context="com.example.nikit.mydoctor.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
-        android:layout_height="match_parent"
-        android:id="@+id/section_label"
-        android:layout_width="match_parent"
-        android:textAlignment="center"
-        android:text="13 февраля" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/container"
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+        tools:context=".MainActivity" >
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    </android.support.v4.view.ViewPager>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/content" />
+
+            <Button
+                android:text="Анальнин                                                    8:30"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button7"
+                android:background="@android:color/background_light" />
+
+            <Button
+                android:text="Анальнин                                                    8:40"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button6"
+                android:background="@android:color/background_light" />
+
+            <Button
+                android:text="Анальнин                                                    8:50"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button5"
+                android:background="@android:color/background_light" />
+
+            <Button
+                android:text="Анальнин                                                    9:20"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/button4"
+                android:background="@android:color/background_light" />
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </RelativeLayout>
