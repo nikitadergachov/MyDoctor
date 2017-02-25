@@ -64,7 +64,8 @@
             android:layout_marginBottom="10dp"
             android:layout_marginEnd="22dp"
             android:layout_height="50dp"
-            android:layout_width="50dp" />
+            android:layout_width="50dp"
+            android:onClick="onClick" />
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab"

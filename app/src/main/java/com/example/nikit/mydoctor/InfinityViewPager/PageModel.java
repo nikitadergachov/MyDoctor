@@ -1,9 +1,13 @@
-package com.example.nikit.mydoctor.IninityViewPager;
+package com.example.nikit.mydoctor.InfinityViewPager;
 
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.nikit.mydoctor.DateFormat;
 
+/**
+ * Created by nikit on 25.02.2017.
+ */
 
 public class PageModel {
 
@@ -14,7 +18,7 @@ public class PageModel {
 
     public PageModel(int index) {
         this.index = index;
-        setIndex(index);
+        setIndex(this.index);
     }
 
     public int getIndex() {
@@ -23,8 +27,7 @@ public class PageModel {
 
     public void setIndex(int index) {
         this.index = index;
-        String date = DateFormat.getPositionDay(index-1);
-
+        String date = DateFormat.getPositionDay(index);
         this.text = date;
     }
 

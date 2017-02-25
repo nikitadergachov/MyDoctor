@@ -2,9 +2,6 @@ package com.example.nikit.mydoctor;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,17 +18,10 @@ import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.widget.TextView;
 
-import com.example.nikit.mydoctor.IninityViewPager.InfinityPagerAdapter;
-import com.example.nikit.mydoctor.IninityViewPager.PageModel;
-import com.example.nikit.mydoctor.DateFormat;
+import com.example.nikit.mydoctor.InfinityViewPager.PageModel;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -82,7 +72,7 @@ public class MainActivity extends AppCompatActivity
         initPageModel();
 
         mInflater = getLayoutInflater();
-        MyagerAdaper adapter = new MyagerAdaper();
+        InfinityPagerAdapter adapter = new InfinityPagerAdapter();
 
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(adapter);
@@ -121,8 +111,9 @@ public class MainActivity extends AppCompatActivity
                         middlePage.setIndex(oldLeftIndex);
                         rightPage.setIndex(oldMiddleIndex);
 
-                        setContent(PAGE_RIGHT);
                         setContent(PAGE_MIDDLE);
+                        viewPager.setCurrentItem(PAGE_MIDDLE,false);
+                        setContent(PAGE_RIGHT);
                         setContent(PAGE_LEFT);
 
                         // user swiped to left direction --> right page
@@ -132,8 +123,9 @@ public class MainActivity extends AppCompatActivity
                         middlePage.setIndex(oldRightIndex);
                         rightPage.setIndex(oldRightIndex + 1);
 
-                        setContent(PAGE_LEFT);
                         setContent(PAGE_MIDDLE);
+                        viewPager.setCurrentItem(PAGE_MIDDLE,false);
+                        setContent(PAGE_LEFT);
                         setContent(PAGE_RIGHT);
                     }
                     viewPager.setCurrentItem(PAGE_MIDDLE, false);
@@ -269,7 +261,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    private class MyagerAdaper extends PagerAdapter {
+    private class InfinityPagerAdapter extends PagerAdapter {
 
         @Override
         public int getItemPosition(Object object) {
@@ -284,7 +276,7 @@ public class MainActivity extends AppCompatActivity
         @Override
         public int getCount() {
             // we only need three pages
-            return 999;
+            return 3;
         }
 
         @Override
@@ -292,8 +284,7 @@ public class MainActivity extends AppCompatActivity
             TextView textView = (TextView)mInflater.inflate(R.layout.content, null);
             PageModel currentPage = mPageModel[position];
             currentPage.textView = textView;
-            String date = DateFormat.getPositionDay(position);
-            textView.setText(date);
+            textView.setText(currentPage.getText());
             container.addView(textView);
             return textView;
         }
