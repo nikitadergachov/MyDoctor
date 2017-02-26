@@ -1,21 +1,22 @@
-package com.example.nikit.mydoctor.IninityViewPager;
+package com.antonyt.infiniteviewpager;
 
-import android.support.v4.view.ViewPager;
+
 import android.content.Context;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 
 /**
  * A {@link ViewPager} that allows pseudo-infinite paging with a wrap-around effect. Should be used with an {@link
- * InfinityPagerAdapter}.
+ * InfinitePagerAdapter}.
  */
-public class InfinityViewPager extends ViewPager {
+public class InfiniteViewPager extends ViewPager {
 
-    public InfinityViewPager(Context context) {
+    public InfiniteViewPager(Context context) {
         super(context);
     }
 
-    public InfinityViewPager(Context context, AttributeSet attrs) {
+    public InfiniteViewPager(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
@@ -48,8 +49,8 @@ public class InfinityViewPager extends ViewPager {
             return super.getCurrentItem();
         }
         int position = super.getCurrentItem();
-        if (getAdapter() instanceof InfinityPagerAdapter) {
-            InfinityPagerAdapter infAdapter = (InfinityPagerAdapter) getAdapter();
+        if (getAdapter() instanceof InfinitePagerAdapter) {
+            InfinitePagerAdapter infAdapter = (InfinitePagerAdapter) getAdapter();
             // Return the actual item position in the data backing InfinitePagerAdapter
             return (position % infAdapter.getRealCount());
         } else {
@@ -61,8 +62,8 @@ public class InfinityViewPager extends ViewPager {
         if (getAdapter().getCount() == 0) {
             return 0;
         }
-        if (getAdapter() instanceof InfinityPagerAdapter) {
-            InfinityPagerAdapter infAdapter = (InfinityPagerAdapter) getAdapter();
+        if (getAdapter() instanceof InfinitePagerAdapter) {
+            InfinitePagerAdapter infAdapter = (InfinitePagerAdapter) getAdapter();
             // allow for 100 back cycles from the beginning
             // should be enough to create an illusion of infinity
             // warning: scrolling to very high values (1,000,000+) results in

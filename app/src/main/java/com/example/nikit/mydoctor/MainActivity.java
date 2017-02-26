@@ -19,6 +19,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
 import android.support.v4.view.PagerAdapter;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.nikit.mydoctor.InfinityViewPager.PageModel;
@@ -43,6 +45,11 @@ public class MainActivity extends AppCompatActivity
     private int mSelectedPageIndex = 1;
     // we save each page in a model
     private PageModel[] mPageModel = new PageModel[3];
+    final String[] catNames = new String[] {
+            "Рыжик", "Барсик", "Мурзик", "Мурка", "Васька",
+            "Томасина", "Кристина", "Пушок", "Дымка", "Кузя",
+            "Китти", "Масяня", "Симба"
+    };
 
 
     @Override
@@ -68,7 +75,23 @@ public class MainActivity extends AppCompatActivity
         fab2.setOnClickListener(this);
         fab3.setOnClickListener(this);
 
+        //listview
+        // получаем экземпляр элемента ListView
+        ListView listView = (ListView)findViewById(R.id.tablet_id);
+        LayoutInflater inflater = getLayoutInflater();
 
+        ViewGroup header = (ViewGroup) inflater.inflate(R.layout.header, listView,
+                false);
+        listView.addHeaderView(header, null, false);
+
+
+        // определяем массив типа String
+
+
+        // используем адаптер данных
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, catNames);
+        listView.setAdapter(arrayAdapter);
         initPageModel();
 
         mInflater = getLayoutInflater();
@@ -249,8 +272,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void setContent(int index) {
+        /*final PageModel model = mPageModel[index];
+        model.textView.setText(model.getText());*/
         final PageModel model = mPageModel[index];
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MainActivity.this,
+                android.R.layout.simple_list_item_1, catNames);
         model.textView.setText(model.getText());
+        model.listView.setAdapter(arrayAdapter);
     }
 
     private void initPageModel() {
@@ -281,12 +309,23 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-            TextView textView = (TextView)mInflater.inflate(R.layout.content, null);
+
+            View drawer = mInflater.inflate(R.layout.content_main, container, false);
+            ListView listView = (ListView)drawer.findViewById(R.id.tablet_id);
             PageModel currentPage = mPageModel[position];
+            currentPage.listView = listView;
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MainActivity.this,
+                    android.R.layout.simple_list_item_1, catNames);
+            listView.setAdapter(arrayAdapter);
+
+            drawer = mInflater.inflate(R.layout.header, container, false);
+            TextView textView = (TextView)drawer.findViewById(R.id.text_header);
+
             currentPage.textView = textView;
-            textView.setText(currentPage.getText());
-            container.addView(textView);
-            return textView;
+
+            listView.addHeaderView(textView);
+            container.addView(listView);
+            return listView;
         }
 
         @Override

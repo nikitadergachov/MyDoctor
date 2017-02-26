@@ -1,4 +1,4 @@
-package com.example.nikit.mydoctor.IninityViewPager;
+package com.antonyt.infiniteviewpager;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -57,4 +57,7 @@ public class MinFragmentPagerAdapter extends FragmentPagerAdapter {
             return adapter.getItem(position);
         }
     }
+
+
+
 }

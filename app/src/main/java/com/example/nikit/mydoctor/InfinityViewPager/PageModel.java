@@ -1,6 +1,8 @@
 package com.example.nikit.mydoctor.InfinityViewPager;
 
+import android.app.LauncherActivity;
 import android.util.Log;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.nikit.mydoctor.DateFormat;
@@ -13,7 +15,10 @@ public class PageModel {
 
     private int index;
     private String text;
+    private String[] tabletNames;
     public TextView textView;
+    public ListView listView;
+    public LauncherActivity.ListItem listItem;
 
 
     public PageModel(int index) {

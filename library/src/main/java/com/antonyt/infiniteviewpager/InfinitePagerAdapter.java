@@ -1,4 +1,4 @@
-package com.example.nikit.mydoctor.IninityViewPager;
+package com.antonyt.infiniteviewpager;
 
 import android.database.DataSetObserver;
 import android.os.Parcelable;
@@ -10,14 +10,14 @@ import android.view.ViewGroup;
 /**
  * A PagerAdapter that wraps around another PagerAdapter to handle paging wrap-around.
  */
-public class InfinityPagerAdapter extends PagerAdapter {
+public class InfinitePagerAdapter extends PagerAdapter {
 
     private static final String TAG = "InfinitePagerAdapter";
     private static final boolean DEBUG = false;
 
     private PagerAdapter adapter;
 
-    public InfinityPagerAdapter(PagerAdapter adapter) {
+    public InfinitePagerAdapter(PagerAdapter adapter) {
         this.adapter = adapter;
     }
 
