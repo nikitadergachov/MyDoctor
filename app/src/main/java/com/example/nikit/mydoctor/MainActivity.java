@@ -51,6 +51,29 @@ public class MainActivity extends AppCompatActivity
             "Китти", "Масяня", "Симба"
     };
 
+    final String[] tablet_name = new String[]{
+            "Паратетамол", "Эспумизан", "Милдронат", "Фенибут",
+            "Луналдин", "Анастезин", "Кадионат", "Триметазин",
+            "Рибоксин", "Предуктал МВ", "Валидол", "Моносан"
+    };
+    final int[] count = {
+            1, 1, 2, 2,
+            2, 3, 1, 2,
+            1, 1, 2, 3
+    };
+
+    final String[] time = new String[]{
+            "8:20", "8:20", "8:40", "9:20",
+            "10:10", "10:20", "11:05", "12:00",
+            "13:00", "13:00", "15:40", "21:40"
+    };
+
+    final String[] time_check = new String[]{
+            "8:25", "8:30", "8:40", "9:30",
+            "10:25", "10:30", "11:25", "13:00",
+            null, null, null, null
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -89,8 +112,9 @@ public class MainActivity extends AppCompatActivity
 
 
         // используем адаптер данных
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, catNames);
+        /*ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_list_item_1, catNames);*/
+        TabletArrayAdapter arrayAdapter = new TabletArrayAdapter(this, tablet_name, count, time, time_check);
         listView.setAdapter(arrayAdapter);
         initPageModel();
 
@@ -275,8 +299,7 @@ public class MainActivity extends AppCompatActivity
         /*final PageModel model = mPageModel[index];
         model.textView.setText(model.getText());*/
         final PageModel model = mPageModel[index];
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MainActivity.this,
-                android.R.layout.simple_list_item_1, catNames);
+        TabletArrayAdapter arrayAdapter = new TabletArrayAdapter(this, tablet_name, count, time, time_check);
         model.textView.setText(model.getText());
         model.listView.setAdapter(arrayAdapter);
     }
@@ -314,8 +337,8 @@ public class MainActivity extends AppCompatActivity
             ListView listView = (ListView)drawer.findViewById(R.id.tablet_id);
             PageModel currentPage = mPageModel[position];
             currentPage.listView = listView;
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(MainActivity.this,
-                    android.R.layout.simple_list_item_1, catNames);
+            TabletArrayAdapter arrayAdapter = new TabletArrayAdapter(MainActivity.this, tablet_name, count, time, time_check);
+
             listView.setAdapter(arrayAdapter);
 
             drawer = mInflater.inflate(R.layout.header, container, false);
@@ -325,6 +348,8 @@ public class MainActivity extends AppCompatActivity
 
             listView.addHeaderView(textView);
             container.addView(listView);
+            textView.setText(currentPage.getText());
+
             return listView;
         }
 

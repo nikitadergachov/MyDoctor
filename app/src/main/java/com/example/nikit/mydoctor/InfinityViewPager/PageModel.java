@@ -18,7 +18,6 @@ public class PageModel {
     private String[] tabletNames;
     public TextView textView;
     public ListView listView;
-    public LauncherActivity.ListItem listItem;
 
 
     public PageModel(int index) {
@@ -32,8 +31,7 @@ public class PageModel {
 
     public void setIndex(int index) {
         this.index = index;
-        String date = DateFormat.getPositionDay(index);
-        this.text = date;
+        this.text = DateFormat.getPositionDay(index);
     }
 
     public String getText() {
