@@ -3,20 +3,29 @@ package com.example.nikit.mydoctor.Model;
 import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
+import com.activeandroid.query.Select;
+import com.activeandroid.query.From;
 
 import java.sql.Date;
+import java.util.List;
 
 @Table(name = "Tablet")
 public class Tablet extends Model{
-    @Column(name = "tablet_name")
-    String tabletName;
+    @Column
+    public String tabletName;
 
-    @Column(name = "tablet_count")
-    int count;
+    @Column
+    public int count;
 
-    @Column(name = "tablet_time")
-    Date time;
+    @Column
+    public Date time;
 
-    @Column(name = "tablet_time_check")
-    Date timeCheck;
+    @Column
+    public Date timeCheck;
+
+    public Tablet(){
+        super();
+    }
+
+
 }

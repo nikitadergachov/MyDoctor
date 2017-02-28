@@ -24,6 +24,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.example.nikit.mydoctor.InfinityViewPager.PageModel;
 import com.activeandroid.*;
+import com.example.nikit.mydoctor.Model.Tablet;
+
+import java.sql.Date;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
@@ -45,11 +49,6 @@ public class MainActivity extends AppCompatActivity
     private int mSelectedPageIndex = 1;
     // we save each page in a model
     private PageModel[] mPageModel = new PageModel[3];
-    final String[] catNames = new String[] {
-            "Рыжик", "Барсик", "Мурзик", "Мурка", "Васька",
-            "Томасина", "Кристина", "Пушок", "Дымка", "Кузя",
-            "Китти", "Масяня", "Симба"
-    };
 
     final String[] tablet_name = new String[]{
             "Паратетамол", "Эспумизан", "Милдронат", "Фенибут",
@@ -191,7 +190,13 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActiveAndroid.initialize(this);
+       ActiveAndroid.initialize(this);
+        Tablet tablet = new Tablet();
+        tablet.tabletName = "Тест";
+        tablet.count = 4;
+        tablet.save();
+
+        Log.d("EA","ALL done!");
     }
 
     @Override
