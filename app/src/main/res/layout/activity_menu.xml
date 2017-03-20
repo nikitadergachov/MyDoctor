@@ -10,7 +10,8 @@
     <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+        android:gravity="center_horizontal">
 
         <ImageView
             android:layout_width="100dp"
@@ -30,7 +31,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="end">
 
         <ImageView
             android:layout_width="100dp"
@@ -43,14 +45,15 @@
             android:layout_width="121dp"
             android:layout_height="wrap_content"
             android:id="@+id/procedure_text_view"
-            android:textAlignment="center"
+            android:textAlignment="textEnd"
             android:textSize="20sp" />
     </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
 
         <ImageView
             android:layout_width="98dp"
@@ -70,7 +73,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
 
         <ImageView
             android:layout_width="100dp"
@@ -91,7 +95,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
 
         <ImageView
             app:srcCompat="@drawable/calendar"
@@ -111,7 +116,8 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal">
 
         <ImageView
             android:layout_width="100dp"

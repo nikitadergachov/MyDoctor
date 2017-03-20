@@ -15,37 +15,25 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/no_check"
         android:id="@+id/check"
-        android:layout_weight="0.5" />
+        />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/type_doctor_text_view"
-        android:layout_weight="0.5"
-        android:textSize="18sp" />
+        android:id="@+id/name_analyz"
+        android:layout_weight="1"
+        android:textSize="20sp" />
 
-    <LinearLayout
-        android:orientation="vertical"
+    <TextView
+        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.8">
+        android:id="@+id/data_text_view"
+        android:textSize="18sp"
+        android:layout_weight="0.1" />
 
-        <TextView
-            android:text="TextView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/data_text_view"
-            android:textAlignment="textEnd"
-            android:textSize="18sp" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/time_text_view"
-            android:textAlignment="viewEnd"
-            android:textSize="18sp" />
-    </LinearLayout>
 
 
 

@@ -1,24 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.application.mydoctor">
+
+    <uses-permission android:name="com.android.alarm.premission.SET_ALARM" />
+
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".Activity.MainActivity">
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.Basic.MedicinesActivity" />
+        <activity
+            android:name=".Activity.Basic.MedicinesActivity"
+            android:label="Медикаменты"
+            android:parentActivityName=".Activity.MenuActivity"
+            tools:ignore="InnerclassSeparator"
+            tools:targetApi="jelly_bean">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activity.MenuActivity" />
+        </activity>
         <activity android:name=".Activity.MenuActivity" />
         <activity android:name=".Activity.Basic.VizitActivity" />
         <activity android:name=".Activity.Basic.AnalyzActivity" />
         <activity android:name=".Activity.Basic.ProcedureActivity" />
         <activity android:name=".Activity.Basic.SettingsActivity" />
-        <activity android:name=".Activity.Basic.RecomendationActivity"/>
+        <activity android:name=".Activity.Basic.RecomendationActivity" />
+        <activity android:name=".Activity.Basic.AnalyzDescriptionActivity"></activity>
     </application>
-    </manifest>
+
+</manifest>

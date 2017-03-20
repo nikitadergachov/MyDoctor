@@ -1,6 +1,7 @@
 package com.application.mydoctor.Helper;
 
 import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 
 public class DataHelper {
@@ -70,7 +71,7 @@ public class DataHelper {
 
     public static String getPositionDay(int position){
         calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, position + 1 );
+        calendar.add(Calendar.DATE, position  );
         return DateRus();
     }
 
@@ -106,5 +107,46 @@ public class DataHelper {
 
     public static int getYers(){
         return calendar.get(Calendar.YEAR);
+    }
+
+    public static String monthRus(int month) {
+        switch (month) {
+            case 0:
+                return "Января";
+            case 1:
+                return "Февраля";
+            case 2:
+                return "Марта";
+            case 3:
+                return "Апреля";
+            case 4:
+                return "Мая";
+            case 5:
+                return "Июня";
+            case 6:
+                return "Июля";
+            case 7:
+                return "Августа";
+            case 8:
+                return "Сентября";
+            case 9:
+                return "Октября";
+            case 10:
+                return "Ноября";
+            case 11:
+                return "Декабря";
+            default:
+                return "";
+
+        }
+    }
+
+    public static String getConverDateToStringRus(long timeMils){
+        Calendar date = new GregorianCalendar();
+        date.setTimeInMillis(timeMils);
+        int dayOfMonth = date.get(Calendar.DAY_OF_MONTH);
+        int month = date.get(Calendar.MONTH);
+
+        return dayOfMonth + " " + monthRus(month);
     }
 }

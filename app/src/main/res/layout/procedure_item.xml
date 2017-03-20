@@ -5,48 +5,39 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="false"
-    android:clickable="false"
-
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp">
+    android:clickable="false">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/no_check"
-        android:id="@+id/check"
-        android:layout_weight="0.5" />
-
-    <TextView
-        android:text="TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/type_doctor_text_view"
-        android:layout_weight="0.5"
-        android:textSize="18sp" />
+        android:id="@+id/check_image"
+        android:layout_weight="0.1" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.8">
+        android:layout_weight="0.9">
 
         <TextView
             android:text="TextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/data_text_view"
-            android:textAlignment="textEnd"
-            android:textSize="18sp" />
+            android:id="@+id/tablet_name" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/time_text_view"
-            android:textAlignment="viewEnd"
-            android:textSize="18sp" />
+            android:id="@+id/time_check"
+            />
     </LinearLayout>
 
-
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/receipt_time"
+        android:layout_weight="0.2" />
 
 </LinearLayout>

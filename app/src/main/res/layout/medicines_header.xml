@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize">
+        android:minHeight="?attr/actionBarSize"
+        android:id="@+id/toolbar">
 
         <ImageView
             android:layout_width="wrap_content"
@@ -27,7 +28,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Медикаменты"
-            android:textSize="24dp" />
+            android:textSize="24dp"
+            android:id="@+id/app_title" />
 
     </android.support.v7.widget.Toolbar>
 

@@ -8,30 +8,42 @@
 
     tools:context="com.application.mydoctor.Activity.Basic.VizitActivity">
 
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:theme="?attr/actionBarTheme"
-        android:minHeight="?attr/actionBarSize">
+        android:layout_height="match_parent">
 
-        <ImageView
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/back"
-            android:foregroundGravity="left"
-            android:layout_marginBottom="@dimen/abc_action_bar_overflow_padding_start_material"
-            android:id="@+id/back_menu"
-            android:clickable="true" />
+            android:background="?attr/colorPrimary"
+            android:theme="?attr/actionBarTheme"
+            android:minHeight="?attr/actionBarSize">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/back"
+                android:foregroundGravity="left"
+                android:layout_marginBottom="@dimen/abc_action_bar_overflow_padding_start_material"
+                android:id="@+id/back_menu"
+                android:clickable="true" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Медикаменты"
-            android:textSize="24dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Визиты к врачу"
+                android:textSize="24dp" />
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/vizit_list_view" />
+
+    </LinearLayout>
 
 </RelativeLayout>
